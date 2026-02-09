@@ -1,0 +1,30 @@
+# macOS
+.DS_Store
+
+# Local env files (never commit secrets)
+.env
+.env.*
+!.env.example
+
+# Node
+node_modules/
+dist/
+build/
+
+# Windows
+Thumbs.db
+
+# phpMyAdmin
+irb-x/
+irb-x@
+irb-x*
+
+# Piwic
+analytics/
+analytics@
+analytics*
+
+# Let's Encrypt
+.well-known/
+.well-known@
+.well-known*

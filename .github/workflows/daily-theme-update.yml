@@ -1,0 +1,56 @@
+name: WakaTime Daily Theme Update
+
+on:
+  schedule:
+    # 每天北京时间 08:07 (UTC 00:07) 运行一次
+    - cron: '7 0 * * *'
+  # 手动触发
+  workflow_dispatch:
+    inputs:
+      hours:
+        description: 'Coding hours (for testing)'
+        required: false
+        default: ''
+      theme:
+        description: 'Theme name (rest/relaxed/productive/focused/intense/legendary)'
+        required: false
+        default: ''
+  # push 到 gh-pages 分支时触发
+  push:
+    branches: [gh-pages]
+    paths:
+      - '.github/workflows/daily-theme-update.yml'
+
+permissions:
+  contents: write
+  models: read
+
+jobs:
+  update-theme:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      
+      - name: Update WakaTime Files
+        id: update
+        env:
+          WAKATIME_TOKEN: ${{ secrets.WAKATIME_TOKEN }}
+          MANUAL_HOURS: ${{ github.event.inputs.hours }}
+          MANUAL_THEME: ${{ github.event.inputs.theme }}
+          TZ: 'Asia/Shanghai'
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: |
+          node .github/scripts/update-wakatime.js
+
+      - name: Commit and Push
+        uses: EndBug/add-and-commit@v9
+        with:
+          add: 'assets/json/config.js assets/json/weekly.js'
+          message: "Update daily theme & weekly stats: ${{ steps.update.outputs.theme_name }}"
+          github_token: ${{ secrets.GH_TOKEN }}

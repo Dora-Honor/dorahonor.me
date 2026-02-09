@@ -1,0 +1,28 @@
+@font-face {font-family: "Engravers' Old English BT";
+    src: url("./assets/fonts/d571b52b60b5617399ce8eab62bf3eb3.eot"); /* IE9*/
+    src: url("./assets/fonts/d571b52b60b5617399ce8eab62bf3eb3.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("./assets/fonts/d571b52b60b5617399ce8eab62bf3eb3.woff2") format("woff2"), /* chrome firefox */
+    url("./assets/fonts/d571b52b60b5617399ce8eab62bf3eb3.woff") format("woff"), /* chrome firefox */
+    url("./assets/fonts/d571b52b60b5617399ce8eab62bf3eb3.ttf") format("truetype"), /* chrome firefox opera Safari, Android, iOS 4.2+*/
+    url("./assets/fonts/d571b52b60b5617399ce8eab62bf3eb3.svg#Engravers' Old English BT") format("svg"); /* iOS 4.1- */
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+HK:wght@100..900&family=Noto+Sans+JP:wght@100..900&family=Noto+Sans+KR:wght@100..900&family=Noto+Sans+SC:wght@100..900&family=Noto+Sans+TC:wght@100..900&family=Noto+Serif+HK:wght@200..900&family=Noto+Serif+JP:wght@200..900&family=Noto+Serif+KR:wght@200..900&family=Noto+Serif+SC:wght@200..900&family=Noto+Serif+TC:wght@200..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+@import url("https://cdn.jsdelivr.net/npm/misans@4.1.0/lib/Normal/MiSans-Medium.min.css");
+
+@import url("https://cdn.jsdelivr.net/npm/misans@4.1.0/lib/Normal/MiSans-Bold.min.css");
+
+@font-face {
+    font-family: "HYWenHei 85W";
+    font-display: swap;
+    font-weight: normal;
+    font-style: normal;
+    src: url("./assets/fonts/SDK_SC_Web.woff2") format("woff2"),
+         url("./assets/fonts/SDK_SC_Web.woff") format("woff"),
+         url("./assets/fonts/SDK_SC_Web.eot?#iefix") format("embedded-opentype");
+}
+
+/* body {
+    font-family: "HYWenHei 85W", "Noto Sans SC", "MiSans", sans-serif;
+} */

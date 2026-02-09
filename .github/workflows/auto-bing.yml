@@ -1,0 +1,36 @@
+name: Auto Update Bing Images CI
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 1 * * *"
+  push:
+    branches: [ gh-pages ]
+  pull_request:
+    branches: [ gh-pages ]
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Generate images.js
+        run: |
+          node assets/js/bing.js
+
+      - name: Commit and Push
+        uses: EndBug/add-and-commit@v9
+        with:
+          add: 'assets/json/images.js'
+          message: "Update Bing images"
+          github_token: ${{ secrets.GH_TOKEN }}

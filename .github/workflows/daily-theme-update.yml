@@ -15,11 +15,11 @@ on:
         description: 'Theme name (rest/relaxed/productive/focused/intense/legendary)'
         required: false
         default: ''
-  # push 到 gh-pages 分支时触发
-  # push:
-    # branches: [gh-pages]
-    # paths:
-      # - '.github/workflows/daily-theme-update.yml'
+  # push 到 main 分支时触发
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/daily-theme-update.yml'
 
 permissions:
   contents: write

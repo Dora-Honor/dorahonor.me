@@ -16,10 +16,10 @@ on:
         required: false
         default: ''
   # push 到 main 分支时触发
-  push:
-    branches: [main]
-    paths:
-      - '.github/workflows/daily-theme-update.yml'
+  # push:
+    # branches: [main]
+    # paths:
+      # - '.github/workflows/daily-theme-update.yml'
 
 permissions:
   contents: write
